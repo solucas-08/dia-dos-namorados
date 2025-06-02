@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feliz Dia dos Namorados ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    #envelopeContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #envelopeContainer h2 {
+      font-size: 2rem;
+      color: #c0392b;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    #envelope {
+      width: 200px;
+      height: 150px;
+      background: url('envelope.png') no-repeat center/contain;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+    }
+
+  
+    #voltarSeta {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #c0392b;
+      user-select: none;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      box-shadow: 0 0 8px rgba(0,0,0,0.15);
+      transition: background-color 0.3s;
+    }
+
+    #voltarSeta:hover {
+      background-color: #fce4e4;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      animation: fadeIn 2s ease;
+      display: none;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #c0392b;
+      animation: pulse 2s infinite;
+    }
+
+    .love-note {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 20px;
+      padding: 60px 60px 40px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      animation: slideUp 1.5s ease;
+      position: relative;
+      box-sizing: border-box;
+      min-height: 400px;
+      display: none;
+    }
+
+    .love-note h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .note-content {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      transition: opacity 0.5s ease;
+      min-height: 250px;
+      text-align: center;
+      padding: 0 40px;
+      box-sizing: border-box;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #c0392b;
+      user-select: none;
+      z-index: 2;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+   .photos-around {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin: 60px auto;
+  display: none;
+}
+
+.photos-around img {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 5px solid white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+/* Posicionamento solto e não simétrico */
+.photos-around img:nth-child(1) {
+  top: 0;
+  left: 10%;
+}
+.photos-around img:nth-child(2) {
+  top: 80px;
+  left: 50%;
+}
+.photos-around img:nth-child(3) {
+  top: 200px;
+  left: 30%;
+}
+.photos-around img:nth-child(4) {
+  top: 120px;
+  left: 70%;
+}
+.photos-around img:nth-child(5) {
+  top: 300px;
+  left: 15%;
+}
+.photos-around img:nth-child(6) {
+  top: 20px;
+  left: 80%;
+}
+
+    .music-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #abrirEnvelope {
+      padding: 12px 28px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    #abrirEnvelope:hover {
+      background-color: #c0392b;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes slideUp {
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes pulse {
+      0%, 100% {transform: scale(1);}
+      50% {transform: scale(1.05);}
+    }
+  </style>
+</head>
+<body>
+  <div id="envelopeContainer">
+    <h2>Para a pessoa mais especial do mundo 💝</h2>
+    <div id="envelope"></div>
+    <button id="abrirEnvelope" onclick="abrirEnvelope()">Entrar</button>
+  </div>
+
+  <div id="carta">
+    <div id="voltarSeta" onclick="voltarEnvelope()">←</div>
+  </div>
+
+  <header>
+    <h1>Feliz Dia dos Namorados ❤️</h1>
+    <p>Uma página só nossa, feita com muito amor!</p>
+  </header>
+
+  <section class="photos-around">
+    <img src="./img/WhatsApp Image 2025-06-01 at 22.54.56.jpeg" alt="Foto 1" />
+    <img src="./img/WhatsApp Image 2025-06-01 at 22.55.04 (1).jpeg" alt="Foto 2" />
+    <img src="./img/WhatsApp Image 2025-06-01 at 22.55.04.jpeg" alt="Foto 3" />
+    <img src="./img/WhatsApp Image 2025-06-01 at 22.55.05 (1).jpeg" alt="Foto 4" />
+    <img src="./img/WhatsApp Image 2025-06-01 at 22.55.05.jpeg" alt="Foto 5" />
+    <img src="./img/WhatsApp Image 2025-06-01 at 22.55.06.jpeg" alt="Foto 6" />
+  </section>
+
+  <section class="love-note">
+    <h2>Cartas para você 💌</h2>
+    <button class="arrow arrow-left" onclick="changeNote(-1)">❮</button>
+    <div class="note-content" id="noteContent">
+     De tudo que devo esperar, você...
+    </div>
+    <button class="arrow arrow-right" onclick="changeNote(1)">❯</button>
+  </section>
+
+  <div class="music-control" onclick="toggleMusic()">🔊</div>
+
+  <audio id="bg-music" loop>
+    <source src="./aud/WhatsApp Audio 2025-06-01 at 22.56.35.mpeg " type="audio/mpeg" />
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    const notes = [
+      "De tudo que devo esperar, você...",
+      "Eu espero, manhãs ensolaradas, mesmo desejando noites de chuva. Espero pelo horário ansioso das 17:00h, aguardando o seu abraço, mais reconfortante que um café quente no final do expediente.",
+      "Espero de você meus 'bom dias', tem significado (Meu amor acordou).",
+      "De você, eu te espero todas as manhãs, de cabelo bagunçado, pedindo mais 5 minutinhos, mas sem mais atrasos pra te ver. Espero, sem mais demora, por abraços; seus braços passados em meu pescoço como um cachecol feito à mão, dedos finos e delicados ao qual, com todo amor, esse cachecol foi detalhado com detalhes seus, com intenção de se tornar o meu preferido cachecol.",
+      "De sempre, por você, espero palavras, feito cartas tão esperadas à chegada, de como diamante, sua voz gravada ecoa na imensidão escura da minha caverna que, hora antes, estava perdido, agora encontra o caminho de volta; vejo a cada detalhe para a fim de que nunca me esqueça, mas seja a minha memória mais memorável.",
+      "De seus olhos, você, espero, esperança me trazer em cada olhar, um acesso à minh'alma, de antes fechada, agora acesso exclusivo para um e mais ninguém.",
+      "Livros a você, espero dedicar; poesias que, antes bagunçadas, organizei simplesmente pra te receber. Afinal, a rainha nem sempre visita seus súditos com tamanha felicidade. Sinta-se em casa; por mais humilde que seja, a mesa é real, o jantar é verdade, e as taças, de tão limpas, o vinho vem de transparência. Agrado-te o paladar, mas não mais o despeças de mim; um até logo já me reacende as esperanças. Por mais que te atrase, eu a espero, e por nobreza perdoo.",
+      "A você, lhe dedico flores: azuis, amarelas, vermelhas, pintadas e, de preferência, o coração seja o jarro de defeitos que lhe tornam único; regue com amor, não precisa esperar a chuva, as flores não vão mais morrer. Não levarás pétalas a velório, porque elas exalam vidas; felizmente, acordam como girassóis; elas reflorecem nas suas manhãs ensolaradas.",
+      "Como navegante, espero você, a comandante, o meu mar a conhecer. Te levaria a naufrágios de passados, mas de nada poderás ver, senão o mar e suas belezas. Por isso, te peço que se torne histórias contadas por marinheiro e tripulantes a bordo; não se passas de causas contadas, agora com seus lábios embrumados em vinho de vinhas verdes. Turve-se ao cheiro do oceano, mas encontre-se em amor, demasiadamente embriagada. De tudo que devas esperar, espere por mim, porque estou a chegar. Meu amor..." 
+    ];
+    let currentNote = 0;
+    const noteContent = document.getElementById('noteContent');
+
+    function changeNote(direction) {
+      noteContent.style.opacity = 0;
+      setTimeout(() => {
+        currentNote = (currentNote + direction + notes.length) % notes.length;
+        noteContent.textContent = notes[currentNote];
+        noteContent.style.opacity = 1;
+      }, 300);
+    }
+
+    const music = document.getElementById('bg-music');
+    let playing = true;
+
+    function toggleMusic() {
+      if (playing) {
+        music.pause();
+      } else {
+        music.play();
+      }
+      playing = !playing;
+    }
+
+    function abrirEnvelope() {
+      document.getElementById('envelopeContainer').style.display = 'none';
+      document.getElementById('carta').style.display = 'block';
+      document.querySelector('header').style.display = 'block';
+      document.querySelector('.love-note').style.display = 'block';
+      document.querySelector('.photos-around').style.display = 'block';
+
+        const music = document.getElementById('bg-music');
+        music.play().catch(e => console.log("Reprodução de áudio bloqueada:", e));
+        playing = true;
+    }
+
+    function voltarEnvelope() {
+      document.getElementById('envelopeContainer').style.display = 'flex';
+      document.getElementById('carta').style.display = 'none';
+      document.querySelector('header').style.display = 'none';
+      document.querySelector('.love-note').style.display = 'none';
+      document.querySelector('.photos-around').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
